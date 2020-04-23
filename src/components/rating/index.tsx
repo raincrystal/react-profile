@@ -5,10 +5,15 @@ import Rater from 'react-rater';
 import 'react-rater/lib/react-rater.css';
 
 const CustomStartRating = (props: any) => {
-  const {total, rating, interactive, handleChangeRate} = props;
+  const {
+    total,
+    rating,
+    interactive,
+    handleChangeRate
+  } = props;
 
   const [rate, setRate] = useState(rating);
-  const onChangeRate = (rate: number) => {
+  const onChangeRate = (rate: number) : void => {
     setRate(rate);
     handleChangeRate(rate);
   };

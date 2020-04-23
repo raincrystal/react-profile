@@ -11,6 +11,9 @@ const App = () => {
   return (
     <div className="App">
       <ProfileCard
+        name="Marcel Konig"
+        title="Senior Front End Developer"
+        address="Ruber, Germany"
         rating={3.5}
         profileViews={1234}
         websiteViews={5678}

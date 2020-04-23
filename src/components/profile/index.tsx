@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import './index.css';
 import CustomStartRating from '../rating';
 
-import avatarImage from '../../assets/avatar.png';
+import avatarImage from '../../assets/marcel.jpg';
 import favoriteFillIcon from '../../assets/favorite_fill.svg';
 import favoriteNoFillIcon from '../../assets/favorite_no_fill.svg';
 
 const ProfileCard = (props: any) => {
   const {
+    favorite,
+    avatarImage,
     name,
     title,
     address,
@@ -19,14 +21,14 @@ const ProfileCard = (props: any) => {
     handleFavorite
   } = props;
 
-  const [favorite, setFavorite] = useState(false);
-  const onClickFavorite = () => {
-    setFavorite(!favorite);
-    handleFavorite(!favorite);
+  const [isFavorite, setFavorite] = useState(favorite);
+  const onClickFavorite = (): void => {
+    setFavorite(!isFavorite);
+    handleFavorite(!isFavorite);
   };
 
   const numberWithCommas = (x: number) : string => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   return (
@@ -36,7 +38,7 @@ const ProfileCard = (props: any) => {
           Developer Profile
         </div>
         <img
-          src={favorite ? favoriteFillIcon : favoriteNoFillIcon}
+          src={isFavorite ? favoriteFillIcon : favoriteNoFillIcon}
           alt="favorite icon"
           onClick={onClickFavorite}
         />
@@ -83,10 +85,11 @@ const ProfileCard = (props: any) => {
 };
 
 ProfileCard.propTypes = {
+  favorite: PropTypes.bool,
+  avatarImage: PropTypes.string,
   name: PropTypes.string,
   title: PropTypes.string,
   address: PropTypes.string,
-  favorite: PropTypes.bool,
   profileViews: PropTypes.number,
   websiteViews: PropTypes.number,
   rating: PropTypes.number,
@@ -94,10 +97,11 @@ ProfileCard.propTypes = {
 };
 
 ProfileCard.defaultProps = {
+  favorite: false,
+  avatarImage: avatarImage,
   name: 'Your Name',
   title: 'Your Title',
   address: 'City, Country',
-  favorite: false,
   profileViews: 0,
   websiteViews: 0,
   rating: 0,
