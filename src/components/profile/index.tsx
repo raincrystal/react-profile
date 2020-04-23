@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import './index.css';
 import CustomStartRating from '../rating';
 
-import avatarImage from '../../assets/marcel.jpg';
+import avatarImage from '../../assets/avatar@2x.png';
 import favoriteFillIcon from '../../assets/favorite_fill.svg';
 import favoriteNoFillIcon from '../../assets/favorite_no_fill.svg';
 
 const ProfileCard = (props: any) => {
   const {
     favorite,
-    avatarImage,
+    avatar,
     name,
     title,
     address,
@@ -44,7 +44,7 @@ const ProfileCard = (props: any) => {
         />
       </div>
       <div className="profile-card-content">
-        <img src={avatarImage} alt="favorite icon"/>
+        <img src={avatar} alt="favorite icon"/>
         <div className="profile-card-content-name">
           {name}
         </div>
@@ -86,7 +86,7 @@ const ProfileCard = (props: any) => {
 
 ProfileCard.propTypes = {
   favorite: PropTypes.bool,
-  avatarImage: PropTypes.string,
+  avatar: PropTypes.string,
   name: PropTypes.string,
   title: PropTypes.string,
   address: PropTypes.string,
@@ -98,7 +98,7 @@ ProfileCard.propTypes = {
 
 ProfileCard.defaultProps = {
   favorite: false,
-  avatarImage: avatarImage,
+  avatar: avatarImage,
   name: 'Your Name',
   title: 'Your Title',
   address: 'City, Country',

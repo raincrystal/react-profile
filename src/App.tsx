@@ -18,6 +18,7 @@ const App = () => {
         profileViews={1234}
         websiteViews={5678}
         handleFavorite={handleFavorite}
+        favorite
       />
     </div>
   );
